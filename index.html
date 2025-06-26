@@ -2,33 +2,39 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Formulaire de commande</title>
-  <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-    }
+  <title>Formulaire de commande – Proxy</title>
 
+  <!-- 1.  Composant x-frame-bypass : c’est CE script qui fait le contournement -->
+  <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
+
+  <style>
+    /* 2.  Un peu de style pour prendre toute la hauteur/largeur */
+    html, body {
+      margin: 0;
+      height: 100%;
+      font-family: system-ui, sans-serif;
+    }
+    header {
+      padding: 1rem;
+      text-align: center;
+      background:#f5f5f5;
+      font-weight: 600;
+    }
     x-frame-bypass {
       width: 100%;
-      height: 100vh;
+      height: calc(100% - 60px); /* 60 px ≈ hauteur de l’en-tête */
       border: none;
       display: block;
     }
-
-    header {
-      padding: 1rem;
-      background-color: #f5f5f5;
-      text-align: center;
-      font-weight: bold;
-    }
   </style>
 </head>
+
 <body>
 
-  <header>Chargement du formulaire de commande...</header>
+  <!-- 3.  Petit message d’attente -->
+  <header>Chargement du formulaire de commande…</header>
 
+  <!-- 4.  Ici on insère NOTRE page bloquée -->
   <x-frame-bypass src="https://nicodem34.github.io/formulaire-commande-boulangerie/"></x-frame-bypass>
 
 </body>
